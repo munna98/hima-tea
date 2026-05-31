@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Himam Tea — A Gift of Nature</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
       --gold: #C9A84C;
@@ -17,12 +20,20 @@
       --cream: #F5EDD8;
       --rust: #8B2E0F;
       --green-dark: #1A2E1A;
-      --mist: rgba(201,168,76,0.08);
+      --mist: rgba(201, 168, 76, 0.08);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--deep);
@@ -35,7 +46,8 @@
     /* CUSTOM CURSOR */
     .cursor {
       position: fixed;
-      width: 12px; height: 12px;
+      width: 12px;
+      height: 12px;
       background: var(--gold);
       border-radius: 50%;
       pointer-events: none;
@@ -44,9 +56,11 @@
       transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
       mix-blend-mode: difference;
     }
+
     .cursor-ring {
       position: fixed;
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border: 1px solid var(--gold);
       border-radius: 50%;
       pointer-events: none;
@@ -59,15 +73,18 @@
     /* NAV */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 4rem;
-      background: linear-gradient(to bottom, rgba(10,7,5,0.95), transparent);
+      background: linear-gradient(to bottom, rgba(10, 7, 5, 0.95), transparent);
       backdrop-filter: blur(4px);
     }
+
     .nav-logo {
       font-family: 'El Messiri', serif;
       font-size: 1.1rem;
@@ -76,11 +93,13 @@
       color: var(--gold);
       text-transform: uppercase;
     }
+
     .nav-links {
       display: flex;
       gap: 2.5rem;
       list-style: none;
     }
+
     .nav-links a {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.9rem;
@@ -91,7 +110,12 @@
       opacity: 0.7;
       transition: opacity 0.3s, color 0.3s;
     }
-    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
     .nav-cta {
       font-family: 'El Messiri', serif;
       font-size: 0.75rem;
@@ -103,15 +127,20 @@
       text-transform: uppercase;
       transition: background 0.3s;
     }
-    .nav-cta:hover { background: var(--gold-light); }
+
+    .nav-cta:hover {
+      background: var(--gold-light);
+    }
 
     /* ══════════════════════════════════
        HERO — SCROLL-DRIVEN VIDEO FRAMES
     ══════════════════════════════════ */
     #hero-scroll-area {
       position: relative;
-      height: 900vh; /* tall scroll container */
+      height: 900vh;
+      /* tall scroll container */
     }
+
     #hero-sticky {
       position: sticky;
       top: 0;
@@ -122,6 +151,7 @@
       align-items: center;
       justify-content: center;
     }
+
     #frame-canvas {
       position: absolute;
       inset: 0;
@@ -129,19 +159,19 @@
       height: 100%;
       object-fit: cover;
     }
+
     /* Dark overlay for text legibility */
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(10,7,5,0.45) 0%,
-        rgba(10,7,5,0.1) 40%,
-        rgba(10,7,5,0.15) 60%,
-        rgba(10,7,5,0.85) 100%
-      );
+      background: linear-gradient(to bottom,
+          rgba(10, 7, 5, 0.45) 0%,
+          rgba(10, 7, 5, 0.1) 40%,
+          rgba(10, 7, 5, 0.15) 60%,
+          rgba(10, 7, 5, 0.85) 100%);
       pointer-events: none;
     }
+
     /* Grain texture */
     .grain {
       position: absolute;
@@ -150,17 +180,20 @@
       pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
     }
+
     .hero-content {
       position: relative;
       z-index: 10;
       text-align: center;
       padding: 2rem;
     }
+
     /* ── PHASE 1: Hero intro text ── */
     .hero-content {
       will-change: opacity, transform;
       /* JS controls opacity; CSS handles the entrance */
     }
+
     .hero-eyebrow {
       font-family: 'Noto Naskh Arabic', serif;
       font-size: 1.1rem;
@@ -170,6 +203,7 @@
       opacity: 0;
       animation: fadeUp 1.2s 0.3s forwards;
     }
+
     .hero-title {
       font-family: 'El Messiri', serif;
       font-size: clamp(3.5rem, 10vw, 9rem);
@@ -177,11 +211,15 @@
       line-height: 0.9;
       letter-spacing: 0.05em;
       color: var(--cream);
-      text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
       opacity: 0;
       animation: fadeUp 1.2s 0.6s forwards;
     }
-    .hero-title span { color: var(--gold); }
+
+    .hero-title span {
+      color: var(--gold);
+    }
+
     .hero-subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -207,16 +245,17 @@
       opacity: 0;
       pointer-events: none;
       background: linear-gradient(to bottom,
-        rgba(10,7,5,0.15) 0%,
-        rgba(10,7,5,0.55) 40%,
-        rgba(10,7,5,0.85) 100%
-      );
+          rgba(10, 7, 5, 0.15) 0%,
+          rgba(10, 7, 5, 0.55) 40%,
+          rgba(10, 7, 5, 0.85) 100%);
       transition: opacity 0.8s ease;
     }
+
     #hero-end-reveal.visible {
       opacity: 1;
       pointer-events: auto;
     }
+
     .reveal-divider {
       display: flex;
       align-items: center;
@@ -226,22 +265,27 @@
       transform: scaleX(0.4);
       transition: opacity 0.9s 0.3s, transform 0.9s 0.3s;
     }
+
     #hero-end-reveal.visible .reveal-divider {
       opacity: 1;
       transform: scaleX(1);
     }
+
     .reveal-divider-line {
       width: 80px;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--gold));
     }
+
     .reveal-divider-line.right {
       background: linear-gradient(to left, transparent, var(--gold));
     }
+
     .reveal-divider-icon {
       color: var(--gold);
       font-size: 0.9rem;
     }
+
     .reveal-arabic {
       font-family: 'Noto Naskh Arabic', serif;
       font-size: clamp(1.2rem, 3vw, 2rem);
@@ -252,10 +296,12 @@
       transform: translateY(20px);
       transition: opacity 0.9s 0.5s, transform 0.9s 0.5s;
     }
+
     #hero-end-reveal.visible .reveal-arabic {
       opacity: 1;
       transform: translateY(0);
     }
+
     .reveal-tagline {
       font-family: 'El Messiri', serif;
       font-size: clamp(1.8rem, 5vw, 5rem);
@@ -263,25 +309,38 @@
       color: var(--cream);
       line-height: 1;
       letter-spacing: 0.06em;
-      text-shadow: 0 4px 40px rgba(0,0,0,0.7);
+      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.7);
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 1s 0.7s, transform 1s 0.7s;
     }
-    #hero-end-reveal.visible .reveal-tagline { opacity: 1; transform: translateY(0); }
-    .reveal-tagline span { color: var(--gold); }
+
+    #hero-end-reveal.visible .reveal-tagline {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-tagline span {
+      color: var(--gold);
+    }
+
     .reveal-subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: clamp(1rem, 2vw, 1.5rem);
-      color: rgba(245,237,216,0.7);
+      color: rgba(245, 237, 216, 0.7);
       margin-top: 1rem;
       letter-spacing: 0.12em;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.9s 0.95s, transform 0.9s 0.95s;
     }
-    #hero-end-reveal.visible .reveal-subtitle { opacity: 1; transform: translateY(0); }
+
+    #hero-end-reveal.visible .reveal-subtitle {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .reveal-cta-group {
       display: flex;
       gap: 1.2rem;
@@ -291,7 +350,11 @@
       transform: translateY(20px);
       transition: opacity 0.9s 1.2s, transform 0.9s 1.2s;
     }
-    #hero-end-reveal.visible .reveal-cta-group { opacity: 1; transform: translateY(0); }
+
+    #hero-end-reveal.visible .reveal-cta-group {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .scroll-hint {
       position: absolute;
@@ -307,7 +370,12 @@
       z-index: 10;
       transition: opacity 0.5s;
     }
-    .scroll-hint.hidden { opacity: 0 !important; pointer-events: none; }
+
+    .scroll-hint.hidden {
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+
     .scroll-hint span {
       font-family: 'El Messiri', serif;
       font-size: 0.6rem;
@@ -315,16 +383,32 @@
       color: var(--gold);
       text-transform: uppercase;
     }
+
     .scroll-line {
       width: 1px;
       height: 60px;
       background: linear-gradient(to bottom, var(--gold), transparent);
       animation: scrollLine 2s infinite;
     }
+
     @keyframes scrollLine {
-      0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
-      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 1;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+        opacity: 1;
+      }
+
+      100% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+        opacity: 0;
+      }
     }
 
     /* FRAME COUNTER / PROGRESS */
@@ -339,20 +423,25 @@
       gap: 0.4rem;
       z-index: 10;
     }
+
     .frame-progress-bar {
       width: 2px;
       height: 120px;
-      background: rgba(201,168,76,0.2);
+      background: rgba(201, 168, 76, 0.2);
       position: relative;
       overflow: hidden;
     }
+
     .frame-progress-fill {
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       background: var(--gold);
       height: 0%;
       transition: height 0.1s;
     }
+
     .frame-progress-label {
       font-family: 'El Messiri', serif;
       font-size: 0.55rem;
@@ -365,12 +454,25 @@
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     /* ══════════════ MARQUEE BAND ══════════════ */
@@ -380,10 +482,12 @@
       padding: 0.75rem 0;
       white-space: nowrap;
     }
+
     .marquee-track {
       display: inline-flex;
       animation: marquee 20s linear infinite;
     }
+
     .marquee-item {
       font-family: 'El Messiri', serif;
       font-size: 0.75rem;
@@ -392,10 +496,19 @@
       text-transform: uppercase;
       padding: 0 3rem;
     }
-    .marquee-dot { color: var(--rust); }
+
+    .marquee-dot {
+      color: var(--rust);
+    }
+
     @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     /* ══════════════ ORIGIN SECTION ══════════════ */
@@ -406,6 +519,7 @@
       grid-template-columns: 1fr 1fr;
       overflow: hidden;
     }
+
     .origin-left {
       padding: 8rem 5rem 8rem 6rem;
       display: flex;
@@ -414,6 +528,7 @@
       position: relative;
       z-index: 2;
     }
+
     .section-tag {
       font-family: 'El Messiri', serif;
       font-size: 0.65rem;
@@ -425,6 +540,7 @@
       align-items: center;
       gap: 1rem;
     }
+
     .section-tag::before {
       content: '';
       display: block;
@@ -432,6 +548,7 @@
       height: 1px;
       background: var(--gold);
     }
+
     .origin-heading {
       font-family: 'El Messiri', serif;
       font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -440,18 +557,21 @@
       margin-bottom: 2rem;
       color: var(--cream);
     }
+
     .origin-heading em {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       color: var(--gold);
     }
+
     .origin-body {
       font-size: 1.1rem;
       line-height: 1.9;
-      color: rgba(245,237,216,0.75);
+      color: rgba(245, 237, 216, 0.75);
       max-width: 480px;
       margin-bottom: 3rem;
     }
+
     .arabic-callout {
       font-family: 'Noto Naskh Arabic', serif;
       font-size: 2rem;
@@ -463,51 +583,80 @@
       writing-mode: vertical-rl;
       letter-spacing: 0.2em;
     }
+
     .origin-right {
       position: relative;
       overflow: hidden;
     }
+
     .origin-image-frame {
       position: absolute;
       inset: 3rem;
-      border: 1px solid rgba(201,168,76,0.25);
+      border: 1px solid rgba(201, 168, 76, 0.25);
     }
+
     .origin-image-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       filter: sepia(20%) contrast(1.05);
     }
+
     .origin-image-corner {
       position: absolute;
-      width: 24px; height: 24px;
+      width: 24px;
+      height: 24px;
       border-color: var(--gold);
       border-style: solid;
     }
-    .origin-image-corner.tl { top: 2rem; left: 2rem; border-width: 2px 0 0 2px; }
-    .origin-image-corner.tr { top: 2rem; right: 2rem; border-width: 2px 2px 0 0; }
-    .origin-image-corner.bl { bottom: 2rem; left: 2rem; border-width: 0 0 2px 2px; }
-    .origin-image-corner.br { bottom: 2rem; right: 2rem; border-width: 0 2px 2px 0; }
+
+    .origin-image-corner.tl {
+      top: 2rem;
+      left: 2rem;
+      border-width: 2px 0 0 2px;
+    }
+
+    .origin-image-corner.tr {
+      top: 2rem;
+      right: 2rem;
+      border-width: 2px 2px 0 0;
+    }
+
+    .origin-image-corner.bl {
+      bottom: 2rem;
+      left: 2rem;
+      border-width: 0 0 2px 2px;
+    }
+
+    .origin-image-corner.br {
+      bottom: 2rem;
+      right: 2rem;
+      border-width: 0 2px 2px 0;
+    }
+
     .origin-stat {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       margin-top: 2rem;
     }
+
     .stat-item {
-      border-top: 1px solid rgba(201,168,76,0.3);
+      border-top: 1px solid rgba(201, 168, 76, 0.3);
       padding-top: 1rem;
     }
+
     .stat-number {
       font-family: 'El Messiri', serif;
       font-size: 2.5rem;
       color: var(--gold);
       line-height: 1;
     }
+
     .stat-label {
       font-size: 0.8rem;
       letter-spacing: 0.15em;
-      color: rgba(245,237,216,0.5);
+      color: rgba(245, 237, 216, 0.5);
       text-transform: uppercase;
       margin-top: 0.3rem;
     }
@@ -524,12 +673,13 @@
       padding: 8rem 4rem;
       overflow: hidden;
     }
+
     .product-bg-text {
       position: absolute;
       font-family: 'El Messiri', serif;
       font-size: 22vw;
       font-weight: 900;
-      color: rgba(201,168,76,0.04);
+      color: rgba(201, 168, 76, 0.04);
       letter-spacing: -0.02em;
       top: 50%;
       left: 50%;
@@ -537,12 +687,14 @@
       pointer-events: none;
       white-space: nowrap;
     }
+
     .product-header {
       text-align: center;
       margin-bottom: 5rem;
       position: relative;
       z-index: 2;
     }
+
     .product-header h2 {
       font-family: 'El Messiri', serif;
       font-size: clamp(2rem, 5vw, 4rem);
@@ -550,11 +702,13 @@
       color: var(--cream);
       margin-bottom: 1rem;
     }
+
     .product-header p {
       font-style: italic;
       font-size: 1.2rem;
-      color: rgba(245,237,216,0.5);
+      color: rgba(245, 237, 216, 0.5);
     }
+
     .product-showcase {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -563,8 +717,9 @@
       width: 100%;
       position: relative;
       z-index: 2;
-      background: rgba(201,168,76,0.08);
+      background: rgba(201, 168, 76, 0.08);
     }
+
     .product-feature-card {
       background: var(--earth);
       padding: 3rem 2.5rem;
@@ -572,17 +727,27 @@
       overflow: hidden;
       transition: background 0.4s;
     }
+
     .product-feature-card::before {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(to right, transparent, var(--gold), transparent);
       transform: scaleX(0);
       transition: transform 0.4s;
     }
-    .product-feature-card:hover { background: rgba(201,168,76,0.04); }
-    .product-feature-card:hover::before { transform: scaleX(1); }
+
+    .product-feature-card:hover {
+      background: rgba(201, 168, 76, 0.04);
+    }
+
+    .product-feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
     .pf-icon {
       font-size: 1.5rem;
       color: var(--gold);
@@ -592,14 +757,16 @@
       justify-content: center;
       width: 52px;
       height: 52px;
-      border: 1px solid rgba(201,168,76,0.2);
+      border: 1px solid rgba(201, 168, 76, 0.2);
       border-radius: 50%;
-      background: rgba(201,168,76,0.06);
+      background: rgba(201, 168, 76, 0.06);
       transition: background 0.3s;
     }
+
     .product-feature-card:hover .pf-icon {
-      background: rgba(201,168,76,0.14);
+      background: rgba(201, 168, 76, 0.14);
     }
+
     .pf-title {
       font-family: 'El Messiri', serif;
       font-size: 1rem;
@@ -608,10 +775,110 @@
       font-weight: 400;
       letter-spacing: 0.05em;
     }
+
     .pf-desc {
       font-size: 0.95rem;
       line-height: 1.8;
-      color: rgba(245,237,216,0.5);
+      color: rgba(245, 237, 216, 0.5);
+    }
+
+    .product-catalog-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .product-catalog-title {
+      font-family: 'El Messiri', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-catalog-sub {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: rgba(245, 237, 216, 0.4);
+    }
+
+    .product-catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      width: 100%;
+      margin-bottom: 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      overflow: hidden;
+      transition: border-color 0.4s, transform 0.4s;
+    }
+
+    .product-card:hover {
+      border-color: rgba(201, 168, 76, 0.35);
+      transform: translateY(-4px);
+    }
+
+    .product-card-image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 1.25rem;
+      transition: transform 0.5s;
+    }
+
+    .product-card:hover .product-card-image img {
+      transform: scale(1.04);
+    }
+
+    .product-card-image.image-missing {
+      background: linear-gradient(135deg, rgba(26, 46, 26, 0.6), rgba(13, 26, 13, 0.8));
+    }
+
+    .product-card-info {
+      padding: 1.5rem 1.75rem 2rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .product-card-size {
+      font-family: 'El Messiri', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card-name {
+      font-family: 'El Messiri', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(245, 237, 216, 0.5);
     }
 
     /* ══════════════ RITUAL SECTION ══════════════ */
@@ -622,6 +889,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .ritual-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -629,25 +897,36 @@
       max-width: 1100px;
       margin: 5rem auto 0;
     }
+
     .ritual-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(201,168,76,0.1);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(201, 168, 76, 0.1);
       padding: 3rem 2.5rem;
       position: relative;
       overflow: hidden;
       transition: background 0.4s;
     }
-    .ritual-card:hover { background: rgba(201,168,76,0.05); }
+
+    .ritual-card:hover {
+      background: rgba(201, 168, 76, 0.05);
+    }
+
     .ritual-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(to right, transparent, var(--gold), transparent);
       transform: scaleX(0);
       transition: transform 0.4s;
     }
-    .ritual-card:hover::before { transform: scaleX(1); }
+
+    .ritual-card:hover::before {
+      transform: scaleX(1);
+    }
+
     .ritual-icon {
       font-size: 1.4rem;
       margin-bottom: 1.5rem;
@@ -656,16 +935,18 @@
       justify-content: center;
       width: 52px;
       height: 52px;
-      border: 1px solid rgba(201,168,76,0.25);
+      border: 1px solid rgba(201, 168, 76, 0.25);
       color: var(--gold);
       border-radius: 50%;
-      background: rgba(201,168,76,0.05);
+      background: rgba(201, 168, 76, 0.05);
       transition: background 0.3s, border-color 0.3s;
     }
+
     .ritual-card:hover .ritual-icon {
-      background: rgba(201,168,76,0.12);
-      border-color: rgba(201,168,76,0.5);
+      background: rgba(201, 168, 76, 0.12);
+      border-color: rgba(201, 168, 76, 0.5);
     }
+
     .ritual-step {
       font-family: 'El Messiri', serif;
       font-size: 0.6rem;
@@ -675,6 +956,7 @@
       margin-bottom: 0.75rem;
       text-transform: uppercase;
     }
+
     .ritual-title {
       font-family: 'El Messiri', serif;
       font-size: 1.2rem;
@@ -682,16 +964,18 @@
       margin-bottom: 1rem;
       font-weight: 400;
     }
+
     .ritual-desc {
       font-size: 0.95rem;
       line-height: 1.8;
-      color: rgba(245,237,216,0.5);
+      color: rgba(245, 237, 216, 0.5);
     }
+
     .ritual-bg-arabic {
       position: absolute;
       font-family: 'Noto Naskh Arabic', serif;
       font-size: 18rem;
-      color: rgba(201,168,76,0.03);
+      color: rgba(201, 168, 76, 0.03);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -707,11 +991,13 @@
       position: relative;
       overflow: hidden;
     }
+
     .export-map {
       position: relative;
       max-width: 900px;
       margin: 4rem auto;
     }
+
     .export-connections {
       display: flex;
       justify-content: center;
@@ -719,6 +1005,7 @@
       gap: 1.5rem;
       margin-top: 4rem;
     }
+
     .export-tag {
       font-family: 'El Messiri', serif;
       font-size: 0.7rem;
@@ -731,15 +1018,21 @@
       overflow: hidden;
       transition: background 0.3s;
     }
-    .export-tag:hover { background: var(--gold-light); }
+
+    .export-tag:hover {
+      background: var(--gold-light);
+    }
+
     .export-tag.outline {
       background: transparent;
       color: var(--gold);
-      border: 1px solid rgba(201,168,76,0.4);
+      border: 1px solid rgba(201, 168, 76, 0.4);
     }
+
     .export-tag.outline:hover {
-      background: rgba(201,168,76,0.1);
+      background: rgba(201, 168, 76, 0.1);
     }
+
     .geo-lines {
       position: absolute;
       inset: 0;
@@ -753,6 +1046,7 @@
       padding: 8rem 4rem;
       overflow: hidden;
     }
+
     .testimonial-track {
       display: flex;
       gap: 2rem;
@@ -760,35 +1054,46 @@
       animation: testimonialScroll 30s linear infinite;
       width: max-content;
     }
+
     @keyframes testimonialScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
+
     .testimonial-card {
       width: 380px;
       flex-shrink: 0;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(201,168,76,0.1);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(201, 168, 76, 0.1);
       padding: 2.5rem;
     }
+
     .testimonial-quote {
       font-style: italic;
       font-size: 1.05rem;
       line-height: 1.8;
-      color: rgba(245,237,216,0.8);
+      color: rgba(245, 237, 216, 0.8);
       margin-bottom: 1.5rem;
     }
+
     .testimonial-author {
       font-family: 'El Messiri', serif;
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       color: var(--gold);
     }
+
     .testimonial-location {
       font-size: 0.8rem;
-      color: rgba(245,237,216,0.3);
+      color: rgba(245, 237, 216, 0.3);
       margin-top: 0.25rem;
     }
+
     .testimonial-stars {
       color: var(--gold);
       font-size: 0.8rem;
@@ -808,16 +1113,43 @@
       position: relative;
       overflow: hidden;
     }
+
     .cta-circle {
       position: absolute;
       border-radius: 50%;
-      border: 1px solid rgba(201,168,76,0.08);
+      border: 1px solid rgba(201, 168, 76, 0.08);
       pointer-events: none;
     }
-    .cta-circle.c1 { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .cta-circle.c2 { width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .cta-circle.c3 { width: 1000px; height: 1000px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .cta-content { position: relative; z-index: 2; }
+
+    .cta-circle.c1 {
+      width: 600px;
+      height: 600px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cta-circle.c2 {
+      width: 800px;
+      height: 800px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cta-circle.c3 {
+      width: 1000px;
+      height: 1000px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
     .cta-content h2 {
       font-family: 'El Messiri', serif;
       font-size: clamp(2rem, 5vw, 4.5rem);
@@ -825,13 +1157,21 @@
       margin-bottom: 1rem;
       font-weight: 400;
     }
+
     .cta-content p {
       font-style: italic;
       font-size: 1.2rem;
-      color: rgba(245,237,216,0.6);
+      color: rgba(245, 237, 216, 0.6);
       margin-bottom: 3rem;
     }
-    .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .btn-primary {
       font-family: 'El Messiri', serif;
       font-size: 0.8rem;
@@ -845,31 +1185,72 @@
       text-decoration: none;
       transition: background 0.3s, transform 0.2s;
     }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
     .btn-secondary {
       font-family: 'El Messiri', serif;
       font-size: 0.8rem;
       letter-spacing: 0.25em;
       color: var(--gold);
       background: transparent;
-      border: 1px solid rgba(201,168,76,0.4);
+      border: 1px solid rgba(201, 168, 76, 0.4);
       padding: 1.1rem 3rem;
       cursor: none;
       text-transform: uppercase;
       text-decoration: none;
       transition: border-color 0.3s, background 0.3s, transform 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-2px); }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ══════════════ WHATSAPP FLOAT ══════════════ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 200;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 1.65rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    .whatsapp-float:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
 
     /* ══════════════ FOOTER ══════════════ */
     footer {
       background: var(--deep);
-      border-top: 1px solid rgba(201,168,76,0.1);
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
       padding: 4rem;
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 3rem;
     }
+
     .footer-brand h3 {
       font-family: 'El Messiri', serif;
       font-size: 1.5rem;
@@ -877,13 +1258,15 @@
       color: var(--gold);
       margin-bottom: 0.5rem;
     }
+
     .footer-brand p {
       font-size: 0.9rem;
-      color: rgba(245,237,216,0.4);
+      color: rgba(245, 237, 216, 0.4);
       line-height: 1.7;
       max-width: 300px;
       margin-top: 1rem;
     }
+
     .footer-col h4 {
       font-family: 'El Messiri', serif;
       font-size: 0.65rem;
@@ -892,31 +1275,44 @@
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.75rem; }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.75rem;
+    }
+
     .footer-col ul li a {
       font-size: 0.9rem;
-      color: rgba(245,237,216,0.45);
+      color: rgba(245, 237, 216, 0.45);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+    }
+
     .footer-bottom {
       padding: 1.5rem 4rem;
-      border-top: 1px solid rgba(201,168,76,0.06);
+      border-top: 1px solid rgba(201, 168, 76, 0.06);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .footer-bottom p {
       font-size: 0.8rem;
-      color: rgba(245,237,216,0.25);
+      color: rgba(245, 237, 216, 0.25);
       letter-spacing: 0.1em;
     }
+
     .footer-tagline-arabic {
       font-family: 'Noto Naskh Arabic', serif;
       font-size: 1.1rem;
-      color: rgba(201,168,76,0.35);
+      color: rgba(201, 168, 76, 0.35);
     }
 
     /* REVEAL ANIMATIONS */
@@ -925,6 +1321,7 @@
       transform: translateY(40px);
       transition: opacity 0.9s ease, transform 0.9s ease;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
@@ -950,6 +1347,7 @@
       padding: 4px;
       z-index: 200;
     }
+
     .hamburger span {
       display: block;
       width: 24px;
@@ -958,15 +1356,25 @@
       transition: transform 0.35s, opacity 0.35s;
       transform-origin: center;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
 
     .mobile-menu {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(10,7,5,0.98);
+      background: rgba(10, 7, 5, 0.98);
       z-index: 150;
       flex-direction: column;
       align-items: center;
@@ -976,10 +1384,12 @@
       transition: opacity 0.35s;
       pointer-events: none;
     }
+
     .mobile-menu.open {
       opacity: 1;
       pointer-events: auto;
     }
+
     .mobile-menu a {
       font-family: 'El Messiri', serif;
       font-size: 1.6rem;
@@ -991,27 +1401,62 @@
       transform: translateY(20px);
       transition: opacity 0.4s, transform 0.4s, color 0.2s;
     }
-    .mobile-menu.open a { opacity: 1; transform: translateY(0); }
-    .mobile-menu.open a:nth-child(1) { transition-delay: 0.05s; }
-    .mobile-menu.open a:nth-child(2) { transition-delay: 0.1s; }
-    .mobile-menu.open a:nth-child(3) { transition-delay: 0.15s; }
-    .mobile-menu.open a:nth-child(4) { transition-delay: 0.2s; }
-    .mobile-menu.open a:nth-child(5) { transition-delay: 0.25s; }
-    .mobile-menu a:hover { color: var(--gold); }
+
+    .mobile-menu.open a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.open a:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .mobile-menu.open a:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .mobile-menu.open a:nth-child(3) {
+      transition-delay: 0.15s;
+    }
+
+    .mobile-menu.open a:nth-child(4) {
+      transition-delay: 0.2s;
+    }
+
+    .mobile-menu.open a:nth-child(5) {
+      transition-delay: 0.25s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--gold);
+    }
+
     .mobile-menu-divider {
       width: 40px;
       height: 1px;
-      background: rgba(201,168,76,0.3);
+      background: rgba(201, 168, 76, 0.3);
     }
 
     /* ══════════════════════════════════
        TABLET  ≤ 1024px
     ══════════════════════════════════ */
     @media (max-width: 1024px) {
-      nav { padding: 1.2rem 2.5rem; }
-      .origin-left { padding: 6rem 3rem 6rem 4rem; }
-      .ritual-grid { grid-template-columns: repeat(2, 1fr); }
-      footer { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      nav {
+        padding: 1.2rem 2.5rem;
+      }
+
+      .origin-left {
+        padding: 6rem 3rem 6rem 4rem;
+      }
+
+      .ritual-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      footer {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
     }
 
     /* ══════════════════════════════════
@@ -1020,102 +1465,317 @@
     @media (max-width: 768px) {
 
       /* — cursor off on touch — */
-      body { cursor: auto; }
-      .cursor, .cursor-ring { display: none; }
+      body {
+        cursor: auto;
+      }
+
+      .cursor,
+      .cursor-ring {
+        display: none;
+      }
 
       /* — nav — */
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .mobile-menu { display: flex; }
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
 
       /* — hero text — */
-      .hero-content { padding: 1.2rem; }
-      .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.08em; }
-      .hero-subtitle { font-size: 0.95rem; margin-top: 0.75rem; letter-spacing: 0.06em; }
+      .hero-content {
+        padding: 1.2rem;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+        margin-top: 0.75rem;
+        letter-spacing: 0.06em;
+      }
 
       /* — hero end reveal — */
-      #hero-end-reveal { padding: 1.5rem; }
-      .reveal-tagline { font-size: clamp(1.4rem, 7vw, 2.5rem); }
-      .reveal-arabic  { font-size: 1rem; margin-bottom: 1rem; }
-      .reveal-subtitle { font-size: 0.85rem; letter-spacing: 0.06em; }
-      .reveal-cta-group { flex-direction: column; align-items: center; gap: 0.8rem; margin-top: 1.5rem; }
-      .reveal-divider { margin-bottom: 1rem; }
-      .reveal-divider-line { width: 40px; }
-      .btn-primary, .btn-secondary { padding: 0.9rem 2rem; font-size: 0.7rem; }
+      #hero-end-reveal {
+        padding: 1.5rem;
+      }
+
+      .reveal-tagline {
+        font-size: clamp(1.4rem, 7vw, 2.5rem);
+      }
+
+      .reveal-arabic {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .reveal-subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+      }
+
+      .reveal-cta-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+      }
+
+      .reveal-divider {
+        margin-bottom: 1rem;
+      }
+
+      .reveal-divider-line {
+        width: 40px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 0.9rem 2rem;
+        font-size: 0.7rem;
+      }
 
       /* — frame progress bar hidden — */
-      .frame-progress { display: none; }
+      .frame-progress {
+        display: none;
+      }
 
       /* — scroll hint — */
-      .scroll-hint { bottom: 1.5rem; }
+      .scroll-hint {
+        bottom: 1.5rem;
+      }
 
       /* — marquee — */
-      .marquee-item { font-size: 0.65rem; padding: 0 1.5rem; }
+      .marquee-item {
+        font-size: 0.65rem;
+        padding: 0 1.5rem;
+      }
 
       /* — origin section — */
-      #origin { grid-template-columns: 1fr; }
-      .origin-left { padding: 4rem 1.5rem 3rem; }
-      .origin-body { font-size: 1rem; margin-bottom: 2rem; }
-      .origin-right { height: 55vw; min-height: 260px; }
-      .origin-image-frame { inset: 1.5rem; }
-      .arabic-callout { display: none; }
-      .origin-stat { gap: 1rem; }
-      .stat-number { font-size: 1.8rem; }
+      #origin {
+        grid-template-columns: 1fr;
+      }
+
+      .origin-left {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      .origin-body {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .origin-right {
+        height: 55vw;
+        min-height: 260px;
+      }
+
+      .origin-image-frame {
+        inset: 1.5rem;
+      }
+
+      .arabic-callout {
+        display: none;
+      }
+
+      .origin-stat {
+        gap: 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+      }
 
       /* — product section — */
-      #product { padding: 4rem 1.5rem; }
-      .product-header { margin-bottom: 3rem; }
-      .product-showcase { grid-template-columns: 1fr 1fr; }
-      .product-feature-card { padding: 2rem 1.5rem; }
-      .pf-icon { width: 44px; height: 44px; font-size: 1.1rem; margin-bottom: 1rem; }
+      #product {
+        padding: 4rem 1.5rem;
+      }
+
+      .product-header {
+        margin-bottom: 3rem;
+      }
+
+      .product-catalog {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 3rem;
+        gap: 1rem;
+      }
+
+      .product-card-info {
+        padding: 1.25rem 1.5rem 1.5rem;
+      }
+
+      .product-showcase {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-feature-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .pf-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
 
       /* — ritual section — */
-      #ritual { padding: 4rem 1.5rem; }
-      .ritual-grid { grid-template-columns: 1fr; margin-top: 3rem; }
-      .ritual-card { padding: 2rem 1.5rem; }
-      .ritual-bg-arabic { font-size: 8rem; }
+      #ritual {
+        padding: 4rem 1.5rem;
+      }
+
+      .ritual-grid {
+        grid-template-columns: 1fr;
+        margin-top: 3rem;
+      }
+
+      .ritual-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .ritual-bg-arabic {
+        font-size: 8rem;
+      }
 
       /* — export section — */
-      #export { padding: 4rem 1.5rem; }
-      .export-connections { gap: 0.75rem; margin-top: 2.5rem; }
-      .export-tag { font-size: 0.6rem; padding: 0.5rem 1rem; letter-spacing: 0.15em; }
-      .geo-lines svg { display: none; } /* hide map lines on small screens */
+      #export {
+        padding: 4rem 1.5rem;
+      }
+
+      .export-connections {
+        gap: 0.75rem;
+        margin-top: 2.5rem;
+      }
+
+      .export-tag {
+        font-size: 0.6rem;
+        padding: 0.5rem 1rem;
+        letter-spacing: 0.15em;
+      }
+
+      .geo-lines svg {
+        display: none;
+      }
+
+      /* hide map lines on small screens */
 
       /* — testimonials — */
-      #testimonials { padding: 4rem 0; }
-      #testimonials > .section-tag,
-      #testimonials > h2 { padding: 0 1.5rem; }
-      .testimonial-card { width: 280px; padding: 1.8rem; }
-      .testimonial-quote { font-size: 0.95rem; }
+      #testimonials {
+        padding: 4rem 0;
+      }
+
+      #testimonials>.section-tag,
+      #testimonials>h2 {
+        padding: 0 1.5rem;
+      }
+
+      .testimonial-card {
+        width: 280px;
+        padding: 1.8rem;
+      }
+
+      .testimonial-quote {
+        font-size: 0.95rem;
+      }
 
       /* — cta — */
-      #cta { padding: 4rem 1.5rem; min-height: 50vh; }
-      .cta-content p { font-size: 1rem; margin-bottom: 2rem; }
-      .cta-buttons { flex-direction: column; align-items: center; gap: 0.8rem; }
-      .cta-circle.c2, .cta-circle.c3 { display: none; }
+      #cta {
+        padding: 4rem 1.5rem;
+        min-height: 50vh;
+      }
+
+      .cta-content p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .cta-circle.c2,
+      .cta-circle.c3 {
+        display: none;
+      }
 
       /* — footer — */
-      footer { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-      .footer-brand p { max-width: 100%; }
-      .footer-bottom { padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+      footer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 1.5rem;
+      }
+
+      .footer-brand p {
+        max-width: 100%;
+      }
+
+      .footer-bottom {
+        padding: 1.2rem 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .whatsapp-float {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        width: 3.25rem;
+        height: 3.25rem;
+        font-size: 1.5rem;
+      }
 
       /* — section headings / tags — */
-      .section-tag { font-size: 0.6rem; }
+      .section-tag {
+        font-size: 0.6rem;
+      }
     }
 
     /* ══════════════════════════════════
        SMALL PHONES  ≤ 380px
     ══════════════════════════════════ */
     @media (max-width: 380px) {
-      .hero-title { font-size: clamp(2.8rem, 15vw, 4rem); }
-      .product-showcase { grid-template-columns: 1fr; }
-      .origin-stat { grid-template-columns: 1fr 1fr; }
-      .testimonial-card { width: 250px; }
+      .hero-title {
+        font-size: clamp(2.8rem, 15vw, 4rem);
+      }
+
+      .product-catalog {
+        grid-template-columns: 1fr;
+      }
+
+      .product-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .origin-stat {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonial-card {
+        width: 250px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="cursor" id="cursor"></div>
@@ -1214,7 +1874,9 @@
       <div class="section-tag">Our Heritage</div>
       <h2 class="origin-heading">Born from<br>the <em>Mist &</em><br>Mountains</h2>
       <p class="origin-body">
-        Nestled in the verdant hills of Kerala's Western Ghats, Himam Tea is cultivated where cool highland air meets ancient volcanic soil. Each leaf carries the whisper of rain-fed terraces and generations of tea craft, delivered with pride to the discerning palates of the Middle East.
+        Nestled in the verdant hills of Kerala's Western Ghats, Himam Tea is cultivated where cool highland air meets
+        ancient volcanic soil. Each leaf carries the whisper of rain-fed terraces and generations of tea craft,
+        delivered with pride to the discerning palates of the Middle East.
       </p>
       <span class="gold-line"></span>
       <div class="origin-stat">
@@ -1243,7 +1905,8 @@
       <div class="origin-image-corner br"></div>
       <div class="origin-image-frame">
         <!-- Tea plantation image using unsplash for a placeholder -->
-        <img src="public/tea_plantation.jpeg" alt="Kerala tea plantation" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #1A2E1A, #0D1A0D)';this.style.display='block'"/>
+        <img src="public/tea_plantation.jpeg" alt="Kerala tea plantation" loading="lazy"
+          onerror="this.style.background='linear-gradient(135deg, #1A2E1A, #0D1A0D)';this.style.display='block'" />
       </div>
       <div class="arabic-callout">شاي</div>
     </div>
@@ -1257,16 +1920,23 @@
       <h2>Himam Fine<br>Black Tea</h2>
       <p>Precision harvested · Meticulously processed</p>
     </div>
+    <div class="product-catalog-header reveal">
+      <h3 class="product-catalog-title">Our Packaging</h3>
+      <p class="product-catalog-sub">Available in retail and bulk formats</p>
+    </div>
+    <div class="product-catalog" id="product-catalog"></div>
     <div class="product-showcase">
       <div class="product-feature-card reveal">
         <div class="pf-icon"><i class="fa-solid fa-medal"></i></div>
         <h3 class="pf-title">Premium Quality</h3>
-        <p class="pf-desc">Certified premium grade, handpicked from the finest estates across Kerala's high-altitude gardens.</p>
+        <p class="pf-desc">Certified premium grade, handpicked from the finest estates across Kerala's high-altitude
+          gardens.</p>
       </div>
       <div class="product-feature-card reveal" style="transition-delay:0.1s">
         <div class="pf-icon"><i class="fa-solid fa-wind"></i></div>
         <h3 class="pf-title">Rich Aroma</h3>
-        <p class="pf-desc">Deep, malty fragrance with floral notes — a signature of Kerala's unique terroir and monsoon climate.</p>
+        <p class="pf-desc">Deep, malty fragrance with floral notes — a signature of Kerala's unique terroir and monsoon
+          climate.</p>
       </div>
       <div class="product-feature-card reveal" style="transition-delay:0.2s">
         <div class="pf-icon"><i class="fa-solid fa-palette"></i></div>
@@ -1276,12 +1946,14 @@
       <div class="product-feature-card reveal" style="transition-delay:0.3s">
         <div class="pf-icon"><i class="fa-solid fa-certificate"></i></div>
         <h3 class="pf-title">Halal Certified</h3>
-        <p class="pf-desc">Fully compliant with Gulf Cooperation Council standards, trusted across the Middle Eastern market.</p>
+        <p class="pf-desc">Fully compliant with Gulf Cooperation Council standards, trusted across the Middle Eastern
+          market.</p>
       </div>
       <div class="product-feature-card reveal" style="transition-delay:0.4s">
         <div class="pf-icon"><i class="fa-solid fa-plane-departure"></i></div>
         <h3 class="pf-title">Export Ready</h3>
-        <p class="pf-desc">Packaged for international shipping with moisture-proof sealing that locks in freshness across distances.</p>
+        <p class="pf-desc">Packaged for international shipping with moisture-proof sealing that locks in freshness
+          across distances.</p>
       </div>
       <div class="product-feature-card reveal" style="transition-delay:0.5s">
         <div class="pf-icon"><i class="fa-solid fa-leaf"></i></div>
@@ -1296,7 +1968,8 @@
     <div class="ritual-bg-arabic">چای</div>
     <div style="max-width:1100px;margin:0 auto;">
       <div class="section-tag reveal">The Ritual</div>
-      <h2 class="reveal" style="font-family:'El Messiri',serif;font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.1;max-width:600px;">
+      <h2 class="reveal"
+        style="font-family:'El Messiri',serif;font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.1;max-width:600px;">
         Brewing Perfection,<br>Step by Step
       </h2>
       <div class="ritual-grid">
@@ -1304,37 +1977,43 @@
           <span class="ritual-icon"><i class="fa-solid fa-scale-balanced"></i></span>
           <div class="ritual-step">Step 01</div>
           <h3 class="ritual-title">Measure</h3>
-          <p class="ritual-desc">One teaspoon of Himam Fine Black Tea per 200ml — the foundation of a perfect cup. Adjust to taste.</p>
+          <p class="ritual-desc">One teaspoon of Himam Fine Black Tea per 200ml — the foundation of a perfect cup.
+            Adjust to taste.</p>
         </div>
         <div class="ritual-card reveal" style="transition-delay:0.15s">
           <span class="ritual-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
           <div class="ritual-step">Step 02</div>
           <h3 class="ritual-title">Heat</h3>
-          <p class="ritual-desc">Bring water to a rolling boil — 100°C. Black tea demands full heat to release its deepest flavour compounds.</p>
+          <p class="ritual-desc">Bring water to a rolling boil — 100°C. Black tea demands full heat to release its
+            deepest flavour compounds.</p>
         </div>
         <div class="ritual-card reveal" style="transition-delay:0.3s">
           <span class="ritual-icon"><i class="fa-regular fa-clock"></i></span>
           <div class="ritual-step">Step 03</div>
           <h3 class="ritual-title">Steep</h3>
-          <p class="ritual-desc">Allow 3–5 minutes of patient steeping. The longer the steep, the bolder the character.</p>
+          <p class="ritual-desc">Allow 3–5 minutes of patient steeping. The longer the steep, the bolder the character.
+          </p>
         </div>
         <div class="ritual-card reveal" style="transition-delay:0.1s">
           <span class="ritual-icon"><i class="fa-solid fa-mug-hot"></i></span>
           <div class="ritual-step">Step 04</div>
           <h3 class="ritual-title">Pour</h3>
-          <p class="ritual-desc">Strain into a glass or traditional karak pot. Watch the deep amber cascade — a moment of pure anticipation.</p>
+          <p class="ritual-desc">Strain into a glass or traditional karak pot. Watch the deep amber cascade — a moment
+            of pure anticipation.</p>
         </div>
         <div class="ritual-card reveal" style="transition-delay:0.25s">
           <span class="ritual-icon"><i class="fa-solid fa-droplet"></i></span>
           <div class="ritual-step">Step 05</div>
           <h3 class="ritual-title">Enrich</h3>
-          <p class="ritual-desc">Add evaporated milk and sugar to taste. Himam's robust body holds beautifully in karak chai style.</p>
+          <p class="ritual-desc">Add evaporated milk and sugar to taste. Himam's robust body holds beautifully in karak
+            chai style.</p>
         </div>
         <div class="ritual-card reveal" style="ftransition-delay:0.4s">
           <span class="ritual-icon"><i class="fa-solid fa-star"></i></span>
           <div class="ritual-step">Step 06</div>
           <h3 class="ritual-title">Savour</h3>
-          <p class="ritual-desc">Share with family or guests. Tea is not a beverage — it is a gesture of warmth and hospitality.</p>
+          <p class="ritual-desc">Share with family or guests. Tea is not a beverage — it is a gesture of warmth and
+            hospitality.</p>
         </div>
       </div>
     </div>
@@ -1344,15 +2023,15 @@
   <section id="export">
     <div class="geo-lines">
       <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-        <circle cx="300" cy="350" r="8" fill="#C9A84C" opacity="0.6"/>
-        <circle cx="750" cy="200" r="6" fill="#C9A84C" opacity="0.5"/>
-        <circle cx="820" cy="220" r="5" fill="#C9A84C" opacity="0.4"/>
-        <circle cx="900" cy="190" r="5" fill="#C9A84C" opacity="0.4"/>
-        <circle cx="860" cy="250" r="4" fill="#C9A84C" opacity="0.35"/>
-        <line x1="300" y1="350" x2="750" y2="200" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4"/>
-        <line x1="300" y1="350" x2="820" y2="220" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4"/>
-        <line x1="300" y1="350" x2="900" y2="190" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4"/>
-        <line x1="300" y1="350" x2="860" y2="250" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4"/>
+        <circle cx="300" cy="350" r="8" fill="#C9A84C" opacity="0.6" />
+        <circle cx="750" cy="200" r="6" fill="#C9A84C" opacity="0.5" />
+        <circle cx="820" cy="220" r="5" fill="#C9A84C" opacity="0.4" />
+        <circle cx="900" cy="190" r="5" fill="#C9A84C" opacity="0.4" />
+        <circle cx="860" cy="250" r="4" fill="#C9A84C" opacity="0.35" />
+        <line x1="300" y1="350" x2="750" y2="200" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4" />
+        <line x1="300" y1="350" x2="820" y2="220" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4" />
+        <line x1="300" y1="350" x2="900" y2="190" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4" />
+        <line x1="300" y1="350" x2="860" y2="250" stroke="#C9A84C" stroke-width="0.8" stroke-dasharray="6,4" />
         <text x="285" y="375" font-family="serif" font-size="11" fill="#C9A84C" opacity="0.7">Kerala</text>
         <text x="755" y="195" font-family="serif" font-size="10" fill="#C9A84C" opacity="0.6">UAE</text>
         <text x="825" y="215" font-family="serif" font-size="10" fill="#C9A84C" opacity="0.5">Qatar</text>
@@ -1362,8 +2041,10 @@
     </div>
     <div class="reveal" style="position:relative;z-index:2;">
       <div class="section-tag" style="justify-content:center;">Global Reach</div>
-      <h2 style="font-family:'El Messiri',serif;font-size:clamp(2rem,5vw,4rem);font-weight:400;margin-bottom:1rem;">From Kerala<br>to the Gulf</h2>
-      <p style="font-style:italic;font-size:1.15rem;color:rgba(245,237,216,0.5);margin-bottom:3rem;">Bridging the finest Indian highlands with the world's greatest tea culture</p>
+      <h2 style="font-family:'El Messiri',serif;font-size:clamp(2rem,5vw,4rem);font-weight:400;margin-bottom:1rem;">From
+        Kerala<br>to the Gulf</h2>
+      <p style="font-style:italic;font-size:1.15rem;color:rgba(245,237,216,0.5);margin-bottom:3rem;">Bridging the finest
+        Indian highlands with the world's greatest tea culture</p>
       <div class="export-connections">
         <div class="export-tag outline">United Arab Emirates</div>
         <div class="export-tag outline">Saudi Arabia</div>
@@ -1381,55 +2062,64 @@
   <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="section-tag reveal">What They Say</div>
-    <h2 class="reveal" style="font-family:'El Messiri',serif;font-size:clamp(1.8rem,4vw,3.5rem);font-weight:400;">Voices from the Gulf</h2>
+    <h2 class="reveal" style="font-family:'El Messiri',serif;font-size:clamp(1.8rem,4vw,3.5rem);font-weight:400;">Voices
+      from the Gulf</h2>
     <div style="overflow:hidden;margin:0 -4rem;">
       <div class="testimonial-track" id="testimonial-track">
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The karak we make with Himam Tea is unlike any other. It has that rich depth that makes a perfect morning cup."</p>
+          <p class="testimonial-quote">"The karak we make with Himam Tea is unlike any other. It has that rich depth
+            that makes a perfect morning cup."</p>
           <div class="testimonial-author">Ahmad Al-Rashidi</div>
           <div class="testimonial-location">Dubai, UAE</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"We switched our café to Himam for our karak chai. Our customers immediately noticed the difference in colour and taste."</p>
+          <p class="testimonial-quote">"We switched our café to Himam for our karak chai. Our customers immediately
+            noticed the difference in colour and taste."</p>
           <div class="testimonial-author">Fatima Al-Suwaidi</div>
           <div class="testimonial-location">Doha, Qatar</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"My family has been drinking tea from Kerala for decades. Himam brings that same authenticity with beautiful packaging."</p>
+          <p class="testimonial-quote">"My family has been drinking tea from Kerala for decades. Himam brings that same
+            authenticity with beautiful packaging."</p>
           <div class="testimonial-author">Mohammed Al-Khalifa</div>
           <div class="testimonial-location">Manama, Bahrain</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The bold brew, the golden colour — Himam is now my daily ritual. Nothing else comes close for traditional karak."</p>
+          <p class="testimonial-quote">"The bold brew, the golden colour — Himam is now my daily ritual. Nothing else
+            comes close for traditional karak."</p>
           <div class="testimonial-author">Noura Al-Mazrouei</div>
           <div class="testimonial-location">Abu Dhabi, UAE</div>
         </div>
         <!-- Duplicate for infinite scroll -->
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The karak we make with Himam Tea is unlike any other. It has that rich depth that makes a perfect morning cup."</p>
+          <p class="testimonial-quote">"The karak we make with Himam Tea is unlike any other. It has that rich depth
+            that makes a perfect morning cup."</p>
           <div class="testimonial-author">Ahmad Al-Rashidi</div>
           <div class="testimonial-location">Dubai, UAE</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"We switched our café to Himam for our karak chai. Our customers immediately noticed the difference in colour and taste."</p>
+          <p class="testimonial-quote">"We switched our café to Himam for our karak chai. Our customers immediately
+            noticed the difference in colour and taste."</p>
           <div class="testimonial-author">Fatima Al-Suwaidi</div>
           <div class="testimonial-location">Doha, Qatar</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"My family has been drinking tea from Kerala for decades. Himam brings that same authenticity with beautiful packaging."</p>
+          <p class="testimonial-quote">"My family has been drinking tea from Kerala for decades. Himam brings that same
+            authenticity with beautiful packaging."</p>
           <div class="testimonial-author">Mohammed Al-Khalifa</div>
           <div class="testimonial-location">Manama, Bahrain</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The bold brew, the golden colour — Himam is now my daily ritual. Nothing else comes close for traditional karak."</p>
+          <p class="testimonial-quote">"The bold brew, the golden colour — Himam is now my daily ritual. Nothing else
+            comes close for traditional karak."</p>
           <div class="testimonial-author">Noura Al-Mazrouei</div>
           <div class="testimonial-location">Abu Dhabi, UAE</div>
         </div>
@@ -1447,8 +2137,8 @@
       <h2>Ready to Import<br>the Finest?</h2>
       <p>Partner with Himam Tea for wholesale export enquiries</p>
       <div class="cta-buttons">
-        <a href="mailto:info@himamtea.com" class="btn-primary">Send Enquiry</a>
-        <a href="tel:+91" class="btn-secondary">Call Us</a>
+        <a href="mailto:himamtea@gmail.com" class="btn-primary">Send Enquiry</a>
+        <a href="tel:+918157999105" class="btn-secondary">Call Us</a>
       </div>
     </div>
   </section>
@@ -1458,7 +2148,8 @@
     <div class="footer-brand">
       <h3>HIMAM TEA</h3>
       <span style="font-family:'Noto Naskh Arabic',serif;color:var(--gold);font-size:1rem;">هدية الطبيعة</span>
-      <p>Fine Black Tea from the Western Ghats of Kerala, India. Grown with care, exported with pride to the Middle East.</p>
+      <p>Fine Black Tea from the Western Ghats of Kerala, India. Grown with care, exported with pride to the Middle
+        East.</p>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
@@ -1481,10 +2172,11 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li><a href="#">Kerala, India</a></li>
-        <li><a href="mailto:info@himamtea.com">info@himamtea.com</a></li>
-        <li><a href="#">Export Enquiries</a></li>
-        <li><a href="#">Wholesale</a></li>
+        <li><a href="tel:+918157999105">India · 00918157999105</a></li>
+        <li><a href="tel:+966556688020">Saudi Arabia · 00966556688020</a></li>
+        <li><a href="https://wa.me/966530536357" target="_blank" rel="noopener noreferrer">WhatsApp · 00966530536357</a>
+        </li>
+        <li><a href="mailto:himamtea@gmail.com">himamtea@gmail.com</a></li>
       </ul>
     </div>
   </footer>
@@ -1493,7 +2185,61 @@
     <span class="footer-tagline-arabic">شاي هِمام</span>
   </div>
 
+  <a href="https://wa.me/966530536357" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp" title="WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
   <script>
+    // ══════════════════════════════════
+    // PRODUCT CATALOG — add an entry here when you add an image to public/products/
+    // ══════════════════════════════════
+    const PRODUCTS = [
+      {
+        image: 'public/products/100gm-box.png',
+        size: '100g',
+        name: 'Retail Box',
+        description: 'Finely crafted black tea in an elegant retail box, perfect for everyday enjoyment, gifting, and premium shelf presentation.'
+      },
+      {
+        image: 'public/products/500gm.png',
+        size: '500g',
+        name: 'Family Pack',
+        description:  'A value-sized pack of premium black tea offering rich aroma, strong flavor, and lasting freshness for regular household use.'
+      },
+      {
+        image: 'public/products/1kg.png',
+        size: '1kg',
+        name: 'Value Pack',
+        description: 'Designed for tea lovers and large families, this economical pack delivers consistent taste, quality, and freshness in every cup.'
+      },
+      {
+        image: 'public/products/5kg.jpeg',
+        size: '5kg',
+        name: 'Bulk Pack',
+        description: 'Wholesale-grade packaging tailored for distributors, hotels, restaurants, cafés, and high-volume catering operations.'
+      }
+    ];
+
+    function renderProductCatalog() {
+      const container = document.getElementById('product-catalog');
+      if (!container) return;
+      container.innerHTML = PRODUCTS.map((p, i) => `
+        <article class="product-card reveal" style="transition-delay:${i * 0.1}s">
+          <div class="product-card-image">
+            <img src="${p.image}" alt="${p.name} — Himam Fine Black Tea ${p.size}" loading="lazy"
+              onerror="this.closest('.product-card-image').classList.add('image-missing')"/>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-size">${p.size}</div>
+            <h3 class="product-card-name">${p.name}</h3>
+            <p class="product-card-desc">${p.description}</p>
+          </div>
+        </article>
+      `).join('');
+    }
+    renderProductCatalog();
+
     // ══════════════════════════════════
     // CUSTOM CURSOR
     // ══════════════════════════════════
@@ -1513,7 +2259,7 @@
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
-    document.querySelectorAll('a, button, .ritual-card').forEach(el => {
+    document.querySelectorAll('a, button, .ritual-card, .product-card').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.width = '20px';
         cursor.style.height = '20px';
@@ -1544,9 +2290,9 @@
     let currentFrame = 0;
     let loadedCount = 0;
 
-    const heroIntro     = document.getElementById('hero-intro');
+    const heroIntro = document.getElementById('hero-intro');
     const heroEndReveal = document.getElementById('hero-end-reveal');
-    const scrollHint    = document.getElementById('scroll-hint');
+    const scrollHint = document.getElementById('scroll-hint');
 
     // Detect mobile once at load (portrait phones & small tablets)
     const IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
@@ -1555,7 +2301,7 @@
       : (i) => `public/frames/frame (${i}).jpg`;
 
     function resizeCanvas() {
-      canvas.width  = window.innerWidth;
+      canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       if (frames[currentFrame] && frames[currentFrame].complete && frames[currentFrame].naturalWidth > 0) {
         drawFrame(currentFrame);
@@ -1575,16 +2321,16 @@
       // — desktop 1920×1080 landscape frames
       // — mobile portrait frames (already correct ratio)
       const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-      const w = img.width  * scale;
+      const w = img.width * scale;
       const h = img.height * scale;
       ctx.drawImage(img, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
     }
 
     function drawPlaceholder(t) {
       const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      grad.addColorStop(0,   `hsl(${25 + t * 20}, 40%, ${8  + t * 5}%)`);
+      grad.addColorStop(0, `hsl(${25 + t * 20}, 40%, ${8 + t * 5}%)`);
       grad.addColorStop(0.5, `hsl(${30 + t * 15}, 35%, ${12 + t * 8}%)`);
-      grad.addColorStop(1,   `hsl(${20 + t * 10}, 30%, ${6  + t * 3}%)`);
+      grad.addColorStop(1, `hsl(${20 + t * 10}, 30%, ${6 + t * 3}%)`);
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
@@ -1592,7 +2338,7 @@
     function loadFrames() {
       for (let i = 1; i <= TOTAL_FRAMES; i++) {
         const img = new Image();
-        img.onload  = () => { loadedCount++; };
+        img.onload = () => { loadedCount++; };
         img.onerror = () => { frames[i - 1] = null; loadedCount++; };
         img.src = FRAME_SRC(i);
         frames.push(img);
@@ -1601,27 +2347,27 @@
     loadFrames();
 
     const heroScrollArea = document.getElementById('hero-scroll-area');
-    const progressFill   = document.getElementById('progress-fill');
+    const progressFill = document.getElementById('progress-fill');
 
     const INTRO_FADE_START = 0.0;
-    const INTRO_FADE_END   = 0.18;
-    const END_FADE_START   = 0.82;
-    const END_FADE_END     = 1.0;
+    const INTRO_FADE_END = 0.18;
+    const END_FADE_START = 0.82;
+    const END_FADE_END = 1.0;
 
     function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
-    function remap(v, a, b)   { return clamp((v - a) / (b - a), 0, 1); }
+    function remap(v, a, b) { return clamp((v - a) / (b - a), 0, 1); }
 
     function onScroll() {
-      const scrollTop  = window.scrollY;
+      const scrollTop = window.scrollY;
       const heroHeight = heroScrollArea.offsetHeight - window.innerHeight;
-      const progress   = clamp(scrollTop / heroHeight, 0, 1);
+      const progress = clamp(scrollTop / heroHeight, 0, 1);
 
       if (progressFill) progressFill.style.height = (progress * 100) + '%';
 
       // Phase 1 — intro fade out
       const introOpacity = 1 - remap(progress, INTRO_FADE_START, INTRO_FADE_END);
-      heroIntro.style.opacity      = introOpacity;
-      heroIntro.style.transform    = `translateY(${(1 - introOpacity) * -30}px)`;
+      heroIntro.style.opacity = introOpacity;
+      heroIntro.style.transform = `translateY(${(1 - introOpacity) * -30}px)`;
       heroIntro.style.pointerEvents = introOpacity < 0.05 ? 'none' : 'auto';
 
       if (progress > 0.04) scrollHint.classList.add('hidden');
@@ -1653,7 +2399,7 @@
 
     function animatePlaceholder() {
       if (loadedCount >= TOTAL_FRAMES) { onScroll(); return; }
-      const t  = (Date.now() % 5000) / 5000;
+      const t = (Date.now() % 5000) / 5000;
       const fi = Math.floor((window.scrollY / Math.max(heroScrollArea.offsetHeight - window.innerHeight, 1)) * (TOTAL_FRAMES - 1));
       if (!frames[fi] || !frames[fi].complete) drawPlaceholder(t);
       requestAnimationFrame(animatePlaceholder);
@@ -1663,8 +2409,8 @@
     // ══════════════════════════════════
     // HAMBURGER MENU
     // ══════════════════════════════════
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     function toggleMobileMenu() {
       hamburger.classList.toggle('open');
@@ -1699,4 +2445,5 @@
     reveals.forEach(el => io.observe(el));
   </script>
 </body>
+
 </html>

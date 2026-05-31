@@ -7,7 +7,7 @@
   <title>Himam Tea — A Gift of Nature</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Sans+Malayalam:wght@400;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -881,6 +881,247 @@
       color: rgba(245, 237, 216, 0.5);
     }
 
+    .product-info {
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto 5rem;
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .product-info-header {
+      text-align: center;
+      padding: 2rem 2rem 0;
+    }
+
+    .product-info-header h3 {
+      font-family: 'El Messiri', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .product-info-header p {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: rgba(245, 237, 216, 0.4);
+    }
+
+    .product-info-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 1.75rem 2rem 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .product-info-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-info-tab {
+      flex: 1 1 auto;
+      min-width: max-content;
+      padding: 0.85rem 1.25rem;
+      font-family: 'El Messiri', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: rgba(245, 237, 216, 0.45);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      cursor: pointer;
+      transition: color 0.3s, border-color 0.3s;
+      white-space: nowrap;
+    }
+
+    .product-info-tab:hover {
+      color: rgba(245, 237, 216, 0.75);
+    }
+
+    .product-info-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .product-info-tab[data-lang="ar"] {
+      font-family: 'Noto Naskh Arabic', serif;
+      font-size: 0.95rem;
+    }
+
+    .product-info-tab[data-lang="ml"] {
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .product-info-panels {
+      padding: 2.5rem 2.5rem 2.75rem;
+    }
+
+    .product-info-panel {
+      display: none;
+      animation: productInfoFade 0.35s ease;
+    }
+
+    .product-info-panel.active {
+      display: block;
+    }
+
+    @keyframes productInfoFade {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product-info-panel[lang="en"] .pi-brand {
+      font-family: 'El Messiri', serif;
+    }
+
+    .product-info-panel[lang="ar"] {
+      font-family: 'Noto Naskh Arabic', serif;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .product-info-panel[lang="ml"] {
+      font-family: 'Noto Sans Malayalam', sans-serif;
+    }
+
+    .pi-brand {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .product-info-panel[lang="ar"] .pi-brand {
+      letter-spacing: 0.12em;
+    }
+
+    .pi-product-name {
+      font-family: inherit;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .pi-tagline {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: rgba(201, 168, 76, 0.85);
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+
+    .product-info-panel[lang="ar"] .pi-tagline {
+      font-style: normal;
+    }
+
+    .pi-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: rgba(245, 237, 216, 0.58);
+      margin-bottom: 1.25rem;
+    }
+
+    .pi-section-label {
+      font-family: inherit;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 2rem 0 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .product-info-panel[lang="ar"] .pi-section-label {
+      text-transform: none;
+      letter-spacing: 0.05em;
+      font-size: 0.85rem;
+    }
+
+    .pi-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: pi-step;
+    }
+
+    .pi-steps li {
+      position: relative;
+      padding-left: 2.25rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(245, 237, 216, 0.58);
+      counter-increment: pi-step;
+    }
+
+    .product-info-panel[lang="ar"] .pi-steps li {
+      padding-left: 0;
+      padding-right: 2.25rem;
+    }
+
+    .pi-steps li::before {
+      content: counter(pi-step);
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'El Messiri', serif;
+      font-size: 0.65rem;
+      color: var(--gold);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 50%;
+    }
+
+    .product-info-panel[lang="ar"] .pi-steps li::before {
+      left: auto;
+      right: 0;
+      font-family: 'Noto Naskh Arabic', serif;
+    }
+
+    .pi-meta {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .pi-meta p {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: rgba(245, 237, 216, 0.5);
+      margin-bottom: 0.35rem;
+    }
+
+    .pi-meta strong {
+      color: rgba(201, 168, 76, 0.9);
+      font-weight: 600;
+    }
+
     /* ══════════════ RITUAL SECTION ══════════════ */
     #ritual {
       min-height: 100vh;
@@ -1165,6 +1406,15 @@
       margin-bottom: 3rem;
     }
 
+    .cta-entity {
+      font-style: normal;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: rgba(245, 237, 216, 0.35);
+      margin-top: -2rem;
+      margin-bottom: 2.5rem;
+    }
+
     .cta-buttons {
       display: flex;
       gap: 1.5rem;
@@ -1265,6 +1515,28 @@
       line-height: 1.7;
       max-width: 300px;
       margin-top: 1rem;
+    }
+
+    .footer-parent {
+      font-size: 0.75rem;
+      color: rgba(245, 237, 216, 0.28);
+      letter-spacing: 0.06em;
+      margin-top: 0.75rem;
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer-bottom-legal {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .footer-bottom-legal .footer-parent {
+      margin-top: 0;
+      max-width: none;
+      font-size: 0.72rem;
+      color: rgba(245, 237, 216, 0.2);
     }
 
     .footer-col h4 {
@@ -1617,6 +1889,30 @@
         gap: 1rem;
       }
 
+      .product-info {
+        margin-bottom: 3rem;
+      }
+
+      .product-info-tabs {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        justify-content: flex-start;
+      }
+
+      .product-info-tab {
+        flex: 0 0 auto;
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .product-info-panels {
+        padding: 1.75rem 1.5rem 2rem;
+      }
+
+      .product-info-header {
+        padding: 1.5rem 1.5rem 0;
+      }
+
       .product-card-info {
         padding: 1.25rem 1.5rem 1.5rem;
       }
@@ -1925,6 +2221,86 @@
       <p class="product-catalog-sub">Available in retail and bulk formats</p>
     </div>
     <div class="product-catalog" id="product-catalog"></div>
+
+    <div class="product-info reveal">
+      <div class="product-info-header">
+        <h3>Product Information</h3>
+        <p>Official product description · As on packaging</p>
+      </div>
+      <div class="product-info-tabs" role="tablist" aria-label="Product description language">
+        <button type="button" class="product-info-tab active" role="tab" id="tab-en" aria-selected="true"
+          aria-controls="panel-en" data-lang="en">English</button>
+        <button type="button" class="product-info-tab" role="tab" id="tab-ar" aria-selected="false"
+          aria-controls="panel-ar" data-lang="ar" tabindex="-1">العربية</button>
+        <button type="button" class="product-info-tab" role="tab" id="tab-ml" aria-selected="false"
+          aria-controls="panel-ml" data-lang="ml" tabindex="-1">മലയാളം</button>
+      </div>
+      <div class="product-info-panels">
+        <div class="product-info-panel active" id="panel-en" role="tabpanel" lang="en" aria-labelledby="tab-en">
+          <p class="pi-brand">HIMAM</p>
+          <h4 class="pi-product-name">Fine Black Tea</h4>
+          <p class="pi-tagline">Pure Taste from the Nilgiris, India</p>
+          <p class="pi-body">From the mist-covered hills of the Nilgiris in South India comes HIMAM Fine Black Tea — a
+            creation of dedicated tea growers who blend traditional expertise with modern quality standards.</p>
+          <p class="pi-body">Each tender leaf is handpicked and carefully processed to preserve its natural aroma, rich
+            color, and smooth taste. Enjoy a cup that reflects the purity and elegance of the Nilgiri highlands.</p>
+          <p class="pi-section-label">Brewing Instructions</p>
+          <ol class="pi-steps">
+            <li>Add one teaspoon of HIMAM Tea to a cup of boiling water.</li>
+            <li>Boil for 60–90 seconds to release full flavor and color.</li>
+            <li>Add sugar or milk to taste. Serve hot and enjoy.</li>
+          </ol>
+          <div class="pi-meta">
+            <p><strong>Ingredients:</strong> 100% Pure Black Tea</p>
+            <p><strong>Origin:</strong> Product of India</p>
+            <p><strong>Export:</strong> Packed for Export to the Kingdom of Saudi Arabia</p>
+          </div>
+        </div>
+        <div class="product-info-panel" id="panel-ar" role="tabpanel" lang="ar" aria-labelledby="tab-ar" hidden>
+          <p class="pi-brand">همـم</p>
+          <h4 class="pi-product-name">شاي أسود فاخر</h4>
+          <p class="pi-tagline">طعم نقي من جبال نيلغيري، الهند</p>
+          <p class="pi-body">من التلال المغمورة بالضباب في منطقة نيلغيري بجنوب الهند، يأتي شاي هيـمـم الأسود الفاخر —
+            من إنتاج مزارعين متخصصين يجمعون بين الخبرة التقليدية ومعايير الجودة الحديثة.</p>
+          <p class="pi-body">تُقطف أوراق الشاي بعناية من الشجيرات الطرية وتُحضّر بدقة للحفاظ على رائحتها الطبيعية ولونها
+            الذهبي الغني ومذاقها الناعم. استمتع بكوب من الشاي يعكس نقاء وأناقة مرتفعات نيلغيري.</p>
+          <p class="pi-section-label">طريقة التحضير</p>
+          <ol class="pi-steps">
+            <li>أضف ملعقة صغيرة من شاي هيـمـم إلى كوب من الماء المغلي.</li>
+            <li>اغلِ لمدة 60 إلى 90 ثانية لإبراز النكهة واللون الكاملين.</li>
+            <li>أضف السكر أو الحليب حسب الرغبة. قدّمه ساخناً وتمتّع بالمذاق الأصيل.</li>
+          </ol>
+          <div class="pi-meta">
+            <p><strong>المكونات:</strong> شاي أسود نقي 100%</p>
+            <p><strong>المنشأ:</strong> منتج من الهند</p>
+            <p><strong>التصدير:</strong> معبأ للتصدير إلى المملكة العربية السعودية</p>
+          </div>
+        </div>
+        <div class="product-info-panel" id="panel-ml" role="tabpanel" lang="ml" aria-labelledby="tab-ml" hidden>
+          <p class="pi-brand">ഹിമം</p>
+          <h4 class="pi-product-name">ഫൈൻ ബ്ലാക്ക് ടീ</h4>
+          <p class="pi-tagline">ഇന്ത്യയിലെ നീലഗിരിയിൽ നിന്നുള്ള ശുദ്ധമായ രുചി</p>
+          <p class="pi-body">ദക്ഷിണേന്ത്യയിലെ നീലഗിരിയിലെ മൂടൽമഞ്ഞ് മൂടിയ കുന്നുകളിൽ നിന്നാണ് ഹിമാം ഫൈൻ ബ്ലാക്ക് ടീ
+            വരുന്നത് - പരമ്പരാഗത വൈദഗ്ദ്ധ്യം ആധുനിക ഗുണനിലവാര മാനദണ്ഡങ്ങളുമായി സംയോജിപ്പിച്ച് സമർപ്പിതരായ തേയില
+            കർഷകരുടെ സൃഷ്ടി.</p>
+          <p class="pi-body">ഓരോ ഇളം ഇലയും കൈകൊണ്ട് ശ്രദ്ധാപൂർവ്വം സംസ്കരിച്ച് അതിന്റെ സ്വാഭാവിക സുഗന്ധം, സമ്പന്നമായ
+            നിറം, മാർദ്ദവമായ രുചി എന്നിവ സംരക്ഷിക്കുന്നു. നീലഗിരിയുടെ ഉയർന്ന പ്രദേശങ്ങളുടെ പരിശുദ്ധിയും ചാരുതയും
+            പ്രതിഫലിപ്പിക്കുന്ന ഒരു കപ്പ് ആസ്വദിക്കൂ.</p>
+          <p class="pi-section-label">ബ്രൂയിംഗ് നിർദ്ദേശങ്ങൾ</p>
+          <ol class="pi-steps">
+            <li>ഒരു കപ്പ് തിളച്ച വെള്ളത്തിൽ ഒരു ടീസ്പൂൺ ഹിമം ചായ ചേർക്കുക.</li>
+            <li>പൂർണ്ണമായ സ്വാദും നിറവും കിട്ടാൻ 60–90 സെക്കൻഡ് തിളപ്പിക്കുക.</li>
+            <li>രുചിയിൽ പഞ്ചസാരയോ പാലോ ചേർക്കുക. ചൂടോടെ വിളമ്പുക, ആസ്വദിക്കുക.</li>
+          </ol>
+          <div class="pi-meta">
+            <p><strong>ചേരുവകൾ:</strong> 100% ശുദ്ധമായ ബ്ലാക്ക് ടീ</p>
+            <p><strong>ഉത്ഭവം:</strong> ഇന്ത്യയുടെ ഉൽപ്പന്നം</p>
+            <p><strong>കയറ്റുമതി:</strong> സൗദി അറേബ്യ യിലേക്ക് കയറ്റുമതി ചെയ്യുന്നതിനായി പായ്ക്ക് ചെയ്തിരിക്കുന്നു</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="product-showcase">
       <div class="product-feature-card reveal">
         <div class="pf-icon"><i class="fa-solid fa-medal"></i></div>
@@ -2136,6 +2512,7 @@
       <div class="section-tag" style="justify-content:center;">Connect With Us</div>
       <h2>Ready to Import<br>the Finest?</h2>
       <p>Partner with Himam Tea for wholesale export enquiries</p>
+      <p class="cta-entity">Tradivus Craft Beverages Private Limited · Kerala, India</p>
       <div class="cta-buttons">
         <a href="mailto:himamtea@gmail.com" class="btn-primary">Send Enquiry</a>
         <a href="tel:+918157999105" class="btn-secondary">Call Us</a>
@@ -2150,6 +2527,7 @@
       <span style="font-family:'Noto Naskh Arabic',serif;color:var(--gold);font-size:1rem;">هدية الطبيعة</span>
       <p>Fine Black Tea from the Western Ghats of Kerala, India. Grown with care, exported with pride to the Middle
         East.</p>
+      <p class="footer-parent">A brand of Tradivus Craft Beverages Private Limited</p>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
@@ -2181,7 +2559,10 @@
     </div>
   </footer>
   <div class="footer-bottom">
-    <p>© 2025 Himam Tea · All Rights Reserved · Kerala, India</p>
+    <div class="footer-bottom-legal">
+      <p>© 2025 Himam Tea · All Rights Reserved · Kerala, India</p>
+      <p class="footer-parent">Tradivus Craft Beverages Private Limited</p>
+    </div>
     <span class="footer-tagline-arabic">شاي هِمام</span>
   </div>
 
@@ -2241,6 +2622,46 @@
     renderProductCatalog();
 
     // ══════════════════════════════════
+    // PRODUCT INFO — language tabs
+    // ══════════════════════════════════
+    (function initProductInfoTabs() {
+      const tabs = document.querySelectorAll('.product-info-tab');
+      const panels = document.querySelectorAll('.product-info-panel');
+      if (!tabs.length) return;
+
+      function activateTab(tab) {
+        const lang = tab.dataset.lang;
+        tabs.forEach(t => {
+          const isActive = t === tab;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          t.tabIndex = isActive ? 0 : -1;
+        });
+        panels.forEach(p => {
+          const isActive = p.id === `panel-${lang}`;
+          p.classList.toggle('active', isActive);
+          p.hidden = !isActive;
+        });
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab));
+        tab.addEventListener('keydown', e => {
+          const tabsArr = [...tabs];
+          const i = tabsArr.indexOf(tab);
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const next = e.key === 'ArrowRight'
+              ? tabsArr[(i + 1) % tabsArr.length]
+              : tabsArr[(i - 1 + tabsArr.length) % tabsArr.length];
+            next.focus();
+            activateTab(next);
+          }
+        });
+      });
+    })();
+
+    // ══════════════════════════════════
     // CUSTOM CURSOR
     // ══════════════════════════════════
     const cursor = document.getElementById('cursor');
@@ -2259,7 +2680,7 @@
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
-    document.querySelectorAll('a, button, .ritual-card, .product-card').forEach(el => {
+    document.querySelectorAll('a, button, .ritual-card, .product-card, .product-info-tab').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.width = '20px';
         cursor.style.height = '20px';

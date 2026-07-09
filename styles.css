@@ -73,12 +73,23 @@ nav {
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: 'El Messiri', serif;
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.3em;
   color: var(--gold);
   text-transform: uppercase;
+}
+
+.nav-logo-icon {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.5rem;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-links {

@@ -5,6 +5,9 @@
   --deep: #0A0705;
   --earth: #1C1208;
   --cream: #F5EDD8;
+  --cream-body: rgba(245, 237, 216, 0.86);
+  --cream-sub: rgba(245, 237, 216, 0.72);
+  --cream-muted: rgba(245, 237, 216, 0.55);
   --rust: #8B2E0F;
   --green-dark: #1A2E1A;
   --mist: rgba(201, 168, 76, 0.08);
@@ -24,10 +27,15 @@ html {
 
 body {
   background: var(--deep);
-  color: var(--cream);
+  color: var(--cream-body);
   font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
   overflow-x: hidden;
   cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* CUSTOM CURSOR */
@@ -326,7 +334,7 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: clamp(1rem, 2vw, 1.5rem);
-  color: rgba(245, 237, 216, 0.7);
+  color: var(--cream-sub);
   margin-top: 1rem;
   letter-spacing: 0.12em;
   opacity: 0;
@@ -563,9 +571,9 @@ nav {
 }
 
 .origin-body {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.9;
-  color: rgba(245, 237, 216, 0.75);
+  color: var(--cream-body);
   max-width: 480px;
   margin-bottom: 3rem;
 }
@@ -652,9 +660,9 @@ nav {
 }
 
 .stat-label {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.15em;
-  color: rgba(245, 237, 216, 0.5);
+  color: var(--cream-sub);
   text-transform: uppercase;
   margin-top: 0.3rem;
 }
@@ -704,7 +712,7 @@ nav {
 .product-header p {
   font-style: italic;
   font-size: 1.2rem;
-  color: rgba(245, 237, 216, 0.5);
+  color: var(--cream-sub);
 }
 
 .product-showcase {
@@ -775,9 +783,9 @@ nav {
 }
 
 .pf-desc {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   line-height: 1.8;
-  color: rgba(245, 237, 216, 0.5);
+  color: var(--cream-body);
 }
 
 .product-catalog-header {
@@ -798,9 +806,9 @@ nav {
 }
 
 .product-catalog-sub {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-style: italic;
-  color: rgba(245, 237, 216, 0.4);
+  color: var(--cream-sub);
 }
 
 .product-catalog {
@@ -874,9 +882,9 @@ nav {
 }
 
 .product-card-desc {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: rgba(245, 237, 216, 0.5);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--cream-body);
 }
 
 .product-info {
@@ -905,9 +913,9 @@ nav {
 }
 
 .product-info-header p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-style: italic;
-  color: rgba(245, 237, 216, 0.4);
+  color: var(--cream-sub);
 }
 
 .product-info-tabs {
@@ -932,7 +940,7 @@ nav {
   font-family: 'El Messiri', serif;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: rgba(245, 237, 216, 0.45);
+  color: var(--cream-sub);
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
@@ -943,7 +951,7 @@ nav {
 }
 
 .product-info-tab:hover {
-  color: rgba(245, 237, 216, 0.75);
+  color: var(--cream);
 }
 
 .product-info-tab.active {
@@ -1034,9 +1042,9 @@ nav {
 }
 
 .pi-body {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.85;
-  color: rgba(245, 237, 216, 0.58);
+  color: var(--cream-body);
   margin-bottom: 1.25rem;
 }
 
@@ -1068,9 +1076,9 @@ nav {
   position: relative;
   padding-left: 2.25rem;
   margin-bottom: 0.85rem;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   line-height: 1.75;
-  color: rgba(245, 237, 216, 0.58);
+  color: var(--cream-body);
   counter-increment: pi-step;
 }
 
@@ -1109,9 +1117,9 @@ nav {
 }
 
 .pi-meta p {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.75;
-  color: rgba(245, 237, 216, 0.5);
+  color: var(--cream-body);
   margin-bottom: 0.35rem;
 }
 
@@ -1205,9 +1213,9 @@ nav {
 }
 
 .ritual-desc {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   line-height: 1.8;
-  color: rgba(245, 237, 216, 0.5);
+  color: var(--cream-body);
 }
 
 .ritual-bg-arabic {
@@ -1316,7 +1324,7 @@ nav {
   font-style: italic;
   font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(245, 237, 216, 0.8);
+  color: var(--cream-body);
   margin-bottom: 1.5rem;
 }
 
@@ -1328,8 +1336,8 @@ nav {
 }
 
 .testimonial-location {
-  font-size: 0.8rem;
-  color: rgba(245, 237, 216, 0.3);
+  font-size: 0.82rem;
+  color: var(--cream-sub);
   margin-top: 0.25rem;
 }
 
@@ -1400,15 +1408,15 @@ nav {
 .cta-content p {
   font-style: italic;
   font-size: 1.2rem;
-  color: rgba(245, 237, 216, 0.6);
+  color: var(--cream-body);
   margin-bottom: 3rem;
 }
 
 .cta-entity {
   font-style: normal;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: rgba(245, 237, 216, 0.35);
+  color: var(--cream-sub);
   margin-top: -2rem;
   margin-bottom: 2.5rem;
 }
@@ -1508,19 +1516,19 @@ footer {
 }
 
 .footer-brand p {
-  font-size: 0.9rem;
-  color: rgba(245, 237, 216, 0.4);
-  line-height: 1.7;
-  max-width: 300px;
+  font-size: 0.95rem;
+  color: var(--cream-body);
+  line-height: 1.75;
+  max-width: 340px;
   margin-top: 1rem;
 }
 
 .footer-parent {
-  font-size: 0.75rem;
-  color: rgba(245, 237, 216, 0.28);
+  font-size: 0.8rem;
+  color: var(--cream-sub);
   letter-spacing: 0.06em;
   margin-top: 0.75rem;
-  max-width: 300px;
+  max-width: 340px;
   line-height: 1.6;
 }
 
@@ -1533,8 +1541,8 @@ footer {
 .footer-bottom-legal .footer-parent {
   margin-top: 0;
   max-width: none;
-  font-size: 0.72rem;
-  color: rgba(245, 237, 216, 0.2);
+  font-size: 0.78rem;
+  color: var(--cream-sub);
 }
 
 .footer-col h4 {
@@ -1556,7 +1564,7 @@ footer {
 
 .footer-col ul li a {
   font-size: 0.9rem;
-  color: rgba(245, 237, 216, 0.45);
+  color: var(--cream-body);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -1574,8 +1582,8 @@ footer {
 }
 
 .footer-bottom p {
-  font-size: 0.8rem;
-  color: rgba(245, 237, 216, 0.25);
+  font-size: 0.82rem;
+  color: var(--cream-sub);
   letter-spacing: 0.1em;
 }
 
